@@ -162,7 +162,7 @@ namespace CrossBot.SysBot
             if (first)
             {
                 for (int i = 0; i < 3; i++)
-                    await Click(SwitchButton.B, 0_400, token).ConfigureAwait(false);
+                    await Click(SwitchButton.B, 0_900, token).ConfigureAwait(false);
             }
 
             var itemName = GameInfo.Strings.GetItemName(item);
@@ -176,7 +176,7 @@ namespace CrossBot.SysBot
 
             // Open player inventory and open the currently selected item slot -- assumed to be the config offset.
             await Click(SwitchButton.X, 1_100, token).ConfigureAwait(false);
-            await Click(SwitchButton.A, 0_500, token).ConfigureAwait(false);
+            await Click(SwitchButton.A, 1_000, token).ConfigureAwait(false);
 
             // Navigate down to the "drop item" option.
             var downCount = item.GetItemDropOption();
@@ -184,12 +184,12 @@ namespace CrossBot.SysBot
                 await Click(SwitchButton.DDOWN, 0_400, token).ConfigureAwait(false);
 
             // Drop item, close menu.
-            await Click(SwitchButton.A, 0_400, token).ConfigureAwait(false);
-            await Click(SwitchButton.X, 0_400, token).ConfigureAwait(false);
+            await Click(SwitchButton.A, 0_900, token).ConfigureAwait(false);
+            await Click(SwitchButton.X, 0_900, token).ConfigureAwait(false);
 
             // Exit out of any menus (fail-safe)
             for (int i = 0; i < 2; i++)
-                await Click(SwitchButton.B, 0_400, token).ConfigureAwait(false);
+                await Click(SwitchButton.B, 0_900, token).ConfigureAwait(false);
         }
 
         private async Task CleanUp(int count, CancellationToken token)
@@ -198,7 +198,7 @@ namespace CrossBot.SysBot
 
             // Exit out of any menus.
             for (int i = 0; i < 3; i++)
-                await Click(SwitchButton.B, 0_400, token).ConfigureAwait(false);
+                await Click(SwitchButton.B, 0_900, token).ConfigureAwait(false);
 
             // Pick up and delete.
             for (int i = 0; i < count; i++)
